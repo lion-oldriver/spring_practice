@@ -5,7 +5,15 @@ import java.util.ArrayList;
 import entity.Member;
 
 public class MemberServiceImpl implements MemberService {
-
+	
+	private static MemberServiceImpl singleton = new MemberServiceImpl();
+    
+	private MemberServiceImpl() {};
+	
+	public static MemberServiceImpl getInstance() {
+		return singleton;
+	}
+	
 	@Override
 	public String greet(int i) {
 		String[] greetings = {"Good Morning", "Hello", "Good Evening"};
@@ -22,5 +30,16 @@ public class MemberServiceImpl implements MemberService {
 		
 		return list;
 	}
+
+	@Override
+	public int sumOf(int x, int y) {
+		int sum = 0;
+		for(int i = x; i <= y; i++) {
+			sum += i;
+		}
+		return sum;
+	}
+	
+	
 
 }
