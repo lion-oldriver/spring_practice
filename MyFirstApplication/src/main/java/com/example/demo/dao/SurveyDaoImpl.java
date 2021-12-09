@@ -34,7 +34,7 @@ public class SurveyDaoImpl implements SurveyDao {
 		String sql = "SELECT id, age, satisfaction, comment, created FROM survey";
 		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);
 		List<Survey> list = new ArrayList<Survey>();
-		for (Map<String, Object> result : resultList) {
+		for(Map<String, Object> result : resultList) {
 			Survey survey = new Survey();
 			survey.setId((int)result.get("id"));
 			survey.setAge((int)result.get("age"));
